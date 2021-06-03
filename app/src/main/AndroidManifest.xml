@@ -20,6 +20,8 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity android:name=".activity_get_stock"/>
+        <activity android:name=".detail_stock"/>
     </application>
 
 </manifest>

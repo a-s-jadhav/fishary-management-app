@@ -2,6 +2,7 @@ package com.example.fisharymanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast=Toast. makeText(getApplicationContext(),"Work in prograss Lets do it",Toast. LENGTH_SHORT);
                 toast. setMargin(50,50);
                 toast. show();
+                startActivity(new Intent(MainActivity.this,activity_get_stock.class));
 
             }
         });

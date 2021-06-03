@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">fishary management</string>
+    <string name="dead_quantity">Dead Quantity</string>
+    <string name="reason">Reason</string>
+    <string name="get_stock">Get Stock</string>
+    <string name="sold">Sold</string>
+    <string name="dead">Dead</string>
+    <string name="fish_name">Fish name</string>
+    <string name="quantity">Quantity :</string>
+    <string name="sold2">SOLD</string>
+    <string name="dead2">DEAD</string>
+    <string name="_300_kg">300 KG</string>
+    <string name="dead_stock_report">Dead Stock Report</string>
+    <string name="dealer_name">Dealer Name :</string>
+    <string name="madanlala_and_sons">MadanLala and sons.</string>
+    <string name="sold_quantity">Sold Quantity :</string>
+    <string name="_700_kg">700 KG</string>
+    <string name="total_purchase">Total Purchase :</string>
+    <string name="fish_name_1">Fish Name 1</string>
+    <string name="fish_name2">Fish Name :</string>
 </resources>

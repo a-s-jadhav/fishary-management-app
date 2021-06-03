@@ -9,5 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFCF0505</color>
     <color name="colorPrimaryDark">#3262C4</color>
+    <color name="crimson">#FF003F</color>
+    <color name="GrayDim">#696969</color>
+    <color name="GrayDark">#A9A9A9</color>
+    <color name="Silver">#C0C0C0</color>
+    <color name="DenimBlue">#1261A0</color>
 
 </resources>
