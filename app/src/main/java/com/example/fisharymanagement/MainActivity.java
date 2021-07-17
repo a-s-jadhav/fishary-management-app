@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         btnGetStock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast=Toast. makeText(getApplicationContext(),"Work in prograss Lets do it",Toast. LENGTH_SHORT);
+                Toast toast=Toast. makeText(getApplicationContext(),"Work in process Lets do it",Toast. LENGTH_SHORT);
                 toast. setMargin(50,50);
                 toast. show();
                 startActivity(new Intent(MainActivity.this,activity_get_stock.class));
