@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/dealer"
+            android:icon="@drawable/ic_dealer_24"
+            android:title="Dealers"></item>
+        <item android:id="@+id/seller"
+            android:title="Sellers"
+            android:icon="@drawable/ic_dealer_24">
+        </item>
+        <item android:id="@+id/purchase"
+            android:title="Purchases"
+            android:icon="@drawable/ic_purchase">
+        </item>
+        <item android:id="@+id/amountpay"
+            android:title="Pay Amount">
+        </item>
+        <item android:id="@+id/amountreceive"
+            android:title="Receive Amount">
+        </item>
+
+    </group>
+
+</menu>

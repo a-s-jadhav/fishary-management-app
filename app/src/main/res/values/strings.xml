@@ -18,4 +18,10 @@
     <string name="total_purchase">Total Purchase :</string>
     <string name="fish_name_1">Fish Name 1</string>
     <string name="fish_name2">Fish Name :</string>
+
+    <string name="navigation_draw_open1">open profile navigation drawer</string>
+    <string name="navigation_draw_close1">close profile navigation drawer</string>
+    <string name="navigation_draw_open2">open dashboard navigation drawer</string>
+    <string name="navigation_draw_close2">close dashboard navigation drawer</string>
+
 </resources>
