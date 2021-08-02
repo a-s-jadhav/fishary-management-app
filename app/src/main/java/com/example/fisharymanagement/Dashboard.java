@@ -17,6 +17,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
+/*
+Firebase is On
+Project Email : teamlastyearproject2022@gmail.com
+Pass : project@2022
+link of the firebase database : https://fishary-management-default-rtdb.asia-southeast1.firebasedatabase.app/
+Database type : Realtime Database
+Database design not yet done, we will complete it soon
+ */
+
 public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
