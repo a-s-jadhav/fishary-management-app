@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         //Member Variable
         member = new Member();
         //Firebase Database Connectivity
-        reff = FirebaseDatabase.getInstance().getReference().child("Member");
+        reff = FirebaseDatabase.getInstance().getReference().child("Members");
 
         //Show Password Logic
         showpassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
