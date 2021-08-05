@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "882567260771",
+    "project_id": "fishary-management",
+    "storage_bucket": "fishary-management.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882567260771:android:3c4d9790ca0b0faf48e656",
+        "android_client_info": {
+          "package_name": "com.example.fisharymanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882567260771-pc67egio5831etcmbcchie0r0cqlcqh4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1Yg3s6gX9hiiLfQmJr3tAKjqF4w38qes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882567260771-pc67egio5831etcmbcchie0r0cqlcqh4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
