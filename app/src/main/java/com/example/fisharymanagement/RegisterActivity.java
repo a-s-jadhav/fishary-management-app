@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText inputName, inputEmail, inputMobile, password ,inputConfirmPassword;
     Button btnRegister;
     CheckBox showpassword;
-    DatabaseReference reff;
+    DatabaseReference reference;
     Member member;
 
 
@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         //Member Variable
         member = new Member();
         //Firebase Database Connectivity
-        reff = FirebaseDatabase.getInstance().getReference().child("Members");
+        reference = FirebaseDatabase.getInstance().getReference().child("Members");
 
         //Show Password Logic
         showpassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                     member.setEmail(inputEmail.getText().toString().trim());
                     member.setMobile(inputMobile.getText().toString().trim());
                     member.setPassword(password.getText().toString().trim());
-                    reff.push().setValue(member);
+                    reference.push().setValue(member);
                     Toast.makeText(RegisterActivity.this,"Registeration Done",Toast.LENGTH_LONG).show();
                 }
             }
