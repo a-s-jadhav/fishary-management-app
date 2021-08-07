@@ -6,10 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,15 +19,22 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText inputName, inputEmail, inputMobile, password ,inputConfirmPassword;
     Button btnRegister;
-    CheckBox showpassword;
-    DatabaseReference reference;
-    Member member;
+    CheckBox showPassword;
+    DatabaseReference referenceFirebase;
+    Member member, memberTest;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        //Firebase Database Connectivity
+        referenceFirebase = FirebaseDatabase.getInstance("https://fishary-management-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Members");
+        // Write a message to the database
+        //please dont delete it , this is for testing
+        //FirebaseDatabase database = FirebaseDatabase.getInstance("https://fishary-management-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        //DatabaseReference referenceFirebase = database.getReference("message");
         //TextView for Already Having Account
         TextView btnHavingAcc = findViewById(R.id.alreadyHaveAccount);
         //Button for Register
@@ -45,48 +50,35 @@ public class RegisterActivity extends AppCompatActivity {
         //EditText for Re-enter password
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
         //CheckBox for Show password
-        showpassword = findViewById(R.id.showpassword2);
+         showPassword= findViewById(R.id.showpassword2);
         //Member Variable
         member = new Member();
-        //Firebase Database Connectivity
-        reference = FirebaseDatabase.getInstance().getReference().child("Members");
 
         //Show Password Logic
-        showpassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    inputConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                }
-                else{
-                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    inputConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
+        showPassword.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(isChecked){
+                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                inputConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            }
+            else{
+                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                inputConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(inputName.getText().toString().isEmpty() || inputEmail.getText().toString().isEmpty() || inputMobile.getText().toString().isEmpty() || password.getText().toString().isEmpty() || inputConfirmPassword.getText().toString().isEmpty()){
-                    Toast.makeText(RegisterActivity.this,"Please Complete the all fields",Toast.LENGTH_LONG).show();
-                }else {
-                    member.setName(inputName.getText().toString().trim());
-                    member.setEmail(inputEmail.getText().toString().trim());
-                    member.setMobile(inputMobile.getText().toString().trim());
-                    member.setPassword(password.getText().toString().trim());
-                    reference.push().setValue(member);
-                    Toast.makeText(RegisterActivity.this,"Registeration Done",Toast.LENGTH_LONG).show();
-                }
+        btnRegister.setOnClickListener(v -> {
+            if(inputName.getText().toString().isEmpty() || inputEmail.getText().toString().isEmpty() || inputMobile.getText().toString().isEmpty() || password.getText().toString().isEmpty() || inputConfirmPassword.getText().toString().isEmpty()){
+                Toast.makeText(RegisterActivity.this,"Please Complete the all fields",Toast.LENGTH_LONG).show();
+            }else {
+                member.setName(inputName.getText().toString().trim());
+                member.setEmail(inputEmail.getText().toString().trim());
+                member.setMobile(inputMobile.getText().toString().trim());
+                member.setPassword(password.getText().toString().trim());
+                referenceFirebase.push().setValue(member);
+                Toast.makeText(RegisterActivity.this,"Registeration Done",Toast.LENGTH_LONG).show();
             }
         });
         //Already Having Account Logic
-        btnHavingAcc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-            }
-        });
+        btnHavingAcc.setOnClickListener(v -> startActivity(new Intent(RegisterActivity.this,LoginActivity.class)));
     }
 }
