@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.128" />
 
     <EditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/inputEmailLogin"
         android:layout_width="347dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -52,7 +52,7 @@
 
 
     <EditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/inputPasswordLogin"
         android:layout_width="342dp"
         android:layout_height="51dp"
         android:layout_marginTop="20dp"
@@ -69,10 +69,10 @@
         android:text=""
         android:textColor="#FFFFFF"
         android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/inputEmail"
+        app:layout_constraintEnd_toEndOf="@+id/inputEmailLogin"
         app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="@+id/inputEmail"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintStart_toStartOf="@+id/inputEmailLogin"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin" />
 
     <TextView
         android:id="@+id/textView"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toTopOf="@+id/alreadyHaveAccount"
         app:layout_constraintEnd_toEndOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordLogin"
         app:layout_constraintVertical_bias="0.549" />
 
     <Button
@@ -99,10 +99,10 @@
         android:textColor="@color/black"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/alreadyHaveAccount"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputPasswordLogin"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordLogin"
         app:layout_constraintVertical_bias="0.394" />
 
     <TextView
@@ -143,10 +143,10 @@
         android:text="show password"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+        app:layout_constraintEnd_toEndOf="@+id/inputPasswordLogin"
         app:layout_constraintHorizontal_bias="0.985"
-        app:layout_constraintStart_toStartOf="@+id/inputPassword"
-        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+        app:layout_constraintStart_toStartOf="@+id/inputPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordLogin"
         app:layout_constraintVertical_bias="0.1"
         tools:ignore="MissingConstraints" />
 
