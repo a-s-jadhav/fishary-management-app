@@ -1,11 +1,13 @@
 package com.example.fisharymanagement;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,6 +16,10 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -21,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button btnRegister;
     CheckBox showPassword;
     DatabaseReference referenceFirebase;
+    FirebaseAuth mAuth;
     Member member, memberTest;
 
 
@@ -29,8 +36,10 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        String urlIMP = "https://fishary-management-default-rtdb.asia-southeast1.firebasedatabase.app/";
         //Firebase Database Connectivity
         referenceFirebase = FirebaseDatabase.getInstance("https://fishary-management-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("Members");
+        mAuth=FirebaseAuth.getInstance();
         // Write a message to the database
         //please dont delete it , this is for testing
         //FirebaseDatabase database = FirebaseDatabase.getInstance("https://fishary-management-default-rtdb.asia-southeast1.firebasedatabase.app/");
@@ -50,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         //EditText for Re-enter password
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
         //CheckBox for Show password
-         showPassword= findViewById(R.id.showpassword2);
+        showPassword= findViewById(R.id.showpassword2);
         //Member Variable
         member = new Member();
 
@@ -75,7 +84,39 @@ public class RegisterActivity extends AppCompatActivity {
                 member.setMobile(inputMobile.getText().toString().trim());
                 member.setPassword(password.getText().toString().trim());
                 referenceFirebase.push().setValue(member);
-                Toast.makeText(RegisterActivity.this,"Registeration Done",Toast.LENGTH_LONG).show();
+                String enterEmail = inputEmail.getText().toString().trim();
+                String enterPass = password.getText().toString().trim();
+                if (enterEmail.isEmpty()) {
+                    inputEmail.setError("Email is empty");
+                    inputEmail.requestFocus();
+                    return;
+                }
+                if (!Patterns.EMAIL_ADDRESS.matcher(enterEmail).matches()) {
+                    inputEmail.setError("Enter the valid email address");
+                    inputEmail.requestFocus();
+                    return;
+                }
+                if (enterPass.isEmpty()) {
+                    password.setError("Enter the password");
+                    password.requestFocus();
+                    return;
+                }
+                if (enterPass.length() < 6) {
+                    password.setError("Length of the password should be more than 6");
+                    password.requestFocus();
+                    return;
+                }
+                mAuth.createUserWithEmailAndPassword(enterEmail, enterPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterActivity.this, "You are successfully Registered", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "You are not Registered! Try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                });
             }
         });
         //Already Having Account Logic
