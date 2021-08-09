@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         inputEmailLogin = findViewById(R.id.inputEmailLogin);
         inputPasswordLogin = findViewById(R.id.inputPasswordLogin);
         showpassword = findViewById(R.id.showpassword);
+        mAuth=FirebaseAuth.getInstance();
         showpassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
