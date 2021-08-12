@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
@@ -20,6 +22,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -63,6 +68,133 @@ public class RegisterActivity extends AppCompatActivity {
         //Member Variable
         member = new Member();
 
+
+        //Name Validation
+        inputName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String name = inputName.getText().toString();
+                if(!name.isEmpty() &&  validateName(inputName.getText().toString())) {
+                    btnRegister.setEnabled(true);
+                }
+                else {
+                    btnRegister.setEnabled(false);
+                    inputName.setError("Invalid Name");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        //Email Id validation
+        inputEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(validateEmailId(inputEmail.getText().toString())){
+                    btnRegister.setEnabled(true);
+                }
+                else {
+                    btnRegister.setEnabled(false);
+                    inputEmail.setError("Invalid Email Id");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        //Mobile number validation Logic
+        inputMobile.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(validateMobileNo(inputMobile.getText().toString())){
+                    btnRegister.setEnabled(true);
+                }
+                else {
+                    btnRegister.setEnabled(false);
+                    inputMobile.setError("Invalid Mobile No");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        // Password Validation
+        password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(validatePassword(password.getText().toString())){
+                    btnRegister.setEnabled(true);
+                }
+                else {
+                    btnRegister.setEnabled(false);
+                    password.setError("Invalid Password");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+        //checking password and confirm pasword is same
+        inputConfirmPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String pass = password.getText().toString();
+                String confirmpass = inputConfirmPassword.getText().toString();
+                if(pass.equals(confirmpass)){
+                    btnRegister.setEnabled(true);
+                }
+                else{
+                    btnRegister.setEnabled(false);
+                    inputConfirmPassword.setError("Password Mismatch");
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         //Show Password Logic
         showPassword.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked){
@@ -86,6 +218,13 @@ public class RegisterActivity extends AppCompatActivity {
                 referenceFirebase.push().setValue(member);
                 String enterEmail = inputEmail.getText().toString().trim();
                 String enterPass = password.getText().toString().trim();
+                String enterName = inputName.getText().toString().trim();
+                if(enterName.isEmpty()){
+                    inputName.setError("Name is empty");
+                    inputName.requestFocus();
+                    return;
+                }
+
                 if (enterEmail.isEmpty()) {
                     inputEmail.setError("Email is empty");
                     inputEmail.requestFocus();
@@ -111,6 +250,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(RegisterActivity.this, "You are successfully Registered", Toast.LENGTH_SHORT).show();
+                            openSignInPage();
+
                         } else {
                             Toast.makeText(RegisterActivity.this, "You are not Registered! Try again", Toast.LENGTH_SHORT).show();
                         }
@@ -121,5 +262,48 @@ public class RegisterActivity extends AppCompatActivity {
         });
         //Already Having Account Logic
         btnHavingAcc.setOnClickListener(v -> startActivity(new Intent(RegisterActivity.this,LoginActivity.class)));
+    }
+
+    //Validate name
+    boolean validateName(String inputname){
+        Pattern p = Pattern.compile("[a-zA-Z]{3,}");
+        Matcher m = p.matcher(inputname);
+        return m.matches();
+    }
+
+    //Validate mobile number
+    boolean validateMobileNo(String input){
+        Pattern p = Pattern.compile("[6-9][0-9]{9}");
+        Matcher m = p.matcher(input);
+        return m.matches();
+    }
+
+    //Validate Email ID
+    boolean validateEmailId(String inputemail){
+        if(!inputemail.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(inputemail).matches()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    //Validate Password
+    boolean validatePassword(String inputpassword){
+        Pattern p = Pattern.compile("^" +
+                              "(?=.*[0-9])" +     // at least 1 digit
+                              "(?=.*[a-zA-z])" +  // at least 1 letter
+                              "(?=.*[@$!%#?&])" + // ar least 1 special character
+                              "(?=\\S+$)" +       // no white spaces
+                              ".{6,}" +           // at least 6 characters
+                               "$");              // end of the string
+        Matcher m = p.matcher(inputpassword);
+        return m.matches();
+    }
+
+    // Redirecting sign Up page to sing in Page
+    public void openSignInPage(){
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
 }
