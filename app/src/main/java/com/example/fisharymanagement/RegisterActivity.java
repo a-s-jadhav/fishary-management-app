@@ -211,11 +211,6 @@ public class RegisterActivity extends AppCompatActivity {
             if(inputName.getText().toString().isEmpty() || inputEmail.getText().toString().isEmpty() || inputMobile.getText().toString().isEmpty() || password.getText().toString().isEmpty() || inputConfirmPassword.getText().toString().isEmpty()){
                 Toast.makeText(RegisterActivity.this,"Please Complete the all fields",Toast.LENGTH_LONG).show();
             }else {
-                member.setName(inputName.getText().toString().trim());
-                member.setEmail(inputEmail.getText().toString().trim());
-                member.setMobile(inputMobile.getText().toString().trim());
-                member.setPassword(password.getText().toString().trim());
-                referenceFirebase.push().setValue(member);
                 String enterEmail = inputEmail.getText().toString().trim();
                 String enterPass = password.getText().toString().trim();
                 String enterName = inputName.getText().toString().trim();
@@ -249,6 +244,12 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            //This code is return to get the help for dev while Checking the proper things
+                            member.setName(inputName.getText().toString().trim());
+                            member.setEmail(inputEmail.getText().toString().trim());
+                            member.setMobile(inputMobile.getText().toString().trim());
+                            member.setPassword(password.getText().toString().trim());
+                            referenceFirebase.push().setValue(member);
                             Toast.makeText(RegisterActivity.this, "You are successfully Registered", Toast.LENGTH_SHORT).show();
                             openSignInPage();
 
