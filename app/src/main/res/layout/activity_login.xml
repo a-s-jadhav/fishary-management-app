@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputEmailLogin" />
 
     <TextView
-        android:id="@+id/fogottxt"
+        android:id="@+id/forgottxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password??"
@@ -104,7 +104,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/inputPasswordLogin"
         app:layout_constraintTop_toBottomOf="@+id/inputPasswordLogin"
-        app:layout_constraintVertical_bias="0.394" />
+        app:layout_constraintVertical_bias="0.394"
+        tools:ignore="MissingPrefix" />
 
     <TextView
         android:id="@+id/alreadyHaveAccount"
