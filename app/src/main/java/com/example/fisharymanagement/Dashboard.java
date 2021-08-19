@@ -61,6 +61,29 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             case R.id.editprofile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new EditProfileClass()).commit();
                 break;
+            case R.id.dealer :
+                Toast.makeText(getApplicationContext(),"dealer",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),DealerActivity.class));
+                return true;
+
+            case R.id.seller :
+                Toast.makeText(getApplicationContext(),"seller",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),SellerActivity.class));
+                return true;
+            case R.id.purchase :
+                Toast.makeText(getApplicationContext(),"purchase",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),PurchaseActivity.class));
+                return true;
+            case R.id.amountpay :
+                Toast.makeText(getApplicationContext(),"amount need to pay",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),PayAmountActivity.class));
+                return true;
+            case R.id.amountreceive :
+                Toast.makeText(getApplicationContext(),"amount need to receive",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),ReceiveAmountActivity.class));
+                return true;
+            default :
+                return super.onOptionsItemSelected(item);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -75,13 +98,14 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
            super.onBackPressed();
        }
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {    //to add menu for dashboard
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.dashboardmenu,menu);
         return true;
     }
+    //Need to remove this after the confirmation
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {  //for menu item
@@ -112,4 +136,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
        }
 
     }
+
+ */
 }

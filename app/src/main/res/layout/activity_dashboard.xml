@@ -19,14 +19,13 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
         android:background="@android:color/holo_purple"
-        app:title="Fishary Management"
-        app:menu="@menu/dashboardmenu">
+        app:title="Fishary Management">
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragmentcontainer"></FrameLayout>
+        android:id="@+id/fragmentcontainer"/>
 
 </LinearLayout>
 

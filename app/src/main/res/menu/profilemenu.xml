@@ -5,6 +5,26 @@
         android:title="Edit Profile"
         android:icon="@drawable/ic_edit">
     </item>
+    <item
+        android:id="@+id/dealer"
+        android:icon="@drawable/ic_dealer_24"
+        android:title="Dealers"></item>
+    <item android:id="@+id/seller"
+        android:title="Sellers"
+        android:icon="@drawable/ic_dealer_24">
+    </item>
+    <item android:id="@+id/purchase"
+        android:title="Purchases"
+        android:icon="@drawable/ic_purchase">
+    </item>
+    <item android:id="@+id/amountpay"
+        android:title="Pay Amount"
+        android:icon="@drawable/ic_pay_amount">
+    </item>
+    <item android:id="@+id/amountreceive"
+        android:title="Receive Amount"
+        android:icon="@drawable/ic_receive_amount">
+    </item>
     <item android:id="@+id/settings"
         android:title="Settings"
         android:icon="@drawable/ic_settings">
