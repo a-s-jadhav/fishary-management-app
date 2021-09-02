@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText inputEmailLogin ,inputPasswordLogin;
     TextView btnforgot;
     CheckBox showpassword;
+    SharedPreferences sp;
     FirebaseAuth mAuth;
 
 
@@ -45,6 +47,11 @@ public class LoginActivity extends AppCompatActivity {
         inputPasswordLogin = findViewById(R.id.inputPasswordLogin);
         showpassword = findViewById(R.id.showpassword);
         mAuth = FirebaseAuth.getInstance();
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+        if(sp.contains("username") && sp.contains("password")){
+            Toast.makeText(LoginActivity.this,"done bro done",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(LoginActivity.this, Dashboard.class));
+        }
         showpassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -94,6 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                     if(task.isSuccessful())
                     {
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("username",email);
+                        editor.putString("password",password);
+                        editor.commit();
                         Toast.makeText(LoginActivity.this,"done bro done",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, Dashboard.class));
                     }
