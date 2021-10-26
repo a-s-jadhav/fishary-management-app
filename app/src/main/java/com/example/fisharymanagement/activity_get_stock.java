@@ -59,4 +59,6 @@ public class activity_get_stock extends AppCompatActivity {
         });
 
     }
+
+
 }

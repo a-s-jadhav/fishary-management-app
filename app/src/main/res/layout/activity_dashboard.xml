@@ -18,7 +18,7 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
-        android:background="@android:color/holo_purple"
+        android:background="@color/DenimBlue"
         app:title="Fishary Management">
     </androidx.appcompat.widget.Toolbar>
 
