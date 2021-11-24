@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">fishary management</string>
+    <string name="app_name">Moana</string>
     <string name="dead_quantity">Dead Quantity</string>
     <string name="reason">Reason</string>
     <string name="get_stock">Get Stock</string>

@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
         android:background="@color/DenimBlue"
+        app:titleTextColor="@color/white"
         app:title="Fishary Management">
     </androidx.appcompat.widget.Toolbar>
 
