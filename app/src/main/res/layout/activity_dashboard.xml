@@ -20,7 +20,7 @@
         android:id="@+id/toolbar"
         android:background="@color/DenimBlue"
         app:titleTextColor="@color/white"
-        app:title="Fishary Management">
+        app:title="@string/app_name">
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout

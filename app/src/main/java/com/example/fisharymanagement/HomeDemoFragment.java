@@ -1,6 +1,7 @@
 package com.example.fisharymanagement;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -8,12 +9,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeDemoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class HomeDemoFragment extends Fragment {
+
+    // creating a variable for
+    // our Firebase Database.
+    FirebaseDatabase firebaseDatabase;
+
+    // creating a variable for our
+    // Database Reference for Firebase.
+    DatabaseReference databaseReference;
+
+    // variable for Text view.
+    private TextView UserNamePre;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
