@@ -25,6 +25,10 @@
         android:title="Receive Amount"
         android:icon="@drawable/ic_receive_amount">
     </item>
+    <item android:id="@+id/getStock"
+        android:title="Stocks"
+        android:icon="@drawable/ic_stocks">
+    </item>
     <item android:id="@+id/settings"
         android:title="Settings"
         android:icon="@drawable/ic_settings">

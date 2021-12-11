@@ -146,6 +146,9 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 Toast.makeText(getApplicationContext(),"amount need to receive",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),ReceiveAmountActivity.class));
                 return true;
+            case R.id.getStock:
+                Toast.makeText(getApplicationContext(),"Stocks",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),activity_get_stock.class));
             default :
                 return super.onOptionsItemSelected(item);
         }

@@ -53,7 +53,7 @@ public class activity_get_stock extends AppCompatActivity {
         btnBackGetStock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(activity_get_stock.this,MainActivity.class));
+                startActivity(new Intent(activity_get_stock.this,Dashboard.class));
                 finish();
             }
         });
