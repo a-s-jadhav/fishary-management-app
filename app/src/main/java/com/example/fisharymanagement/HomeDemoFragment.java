@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
 
 
 /**
@@ -32,8 +33,9 @@ public class HomeDemoFragment extends Fragment {
     // Database Reference for Firebase.
     DatabaseReference databaseReference;
 
-    // variable for Text view.
-    private TextView UserNamePre;
+    // variable for view with name rootView
+    private View rootView;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,8 +79,26 @@ public class HomeDemoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_demo, container, false);
+                             Bundle inState) {
+        rootView = inflater.inflate(R.layout.fragment_home_demo,container,false);
+        final TextView wishGreet = (TextView) rootView.findViewById(R.id.wishGreet);
+        String TTT = getTimeFromAndroid();
+        wishGreet.setText(TTT);
+        return rootView;
+    }
+    private String getTimeFromAndroid() {
+        Calendar c = Calendar.getInstance();
+        String TTT = "Happy to have you";
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
+        if (timeOfDay >= 0 && timeOfDay < 12) {
+            TTT = "Good Morning";
+        } else if (timeOfDay >= 12 && timeOfDay < 16) {
+            TTT="Good Afternoon";
+        } else if (timeOfDay >= 16 && timeOfDay < 21) {
+            TTT="Good Evening";
+        } else if (timeOfDay >= 21 && timeOfDay < 24) {
+            TTT="Good Night";
+        }
+        return TTT;
     }
 }
