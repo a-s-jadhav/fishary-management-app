@@ -4,27 +4,29 @@
     android:layout_height="225dp"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:background="@drawable/bg5"
+    android:background="#ffd601"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
     <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginLeft="10dp"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@drawable/avater_new1"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Abc Xyz"
+        android:text="Anne Frank"
+        android:fontFamily="@font/montserrat"
         android:textSize="16sp"
-        android:textColor="#ffffff"
+        android:textColor="@color/black"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"/>
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="AbcXyz2gmail.com"
+        android:text="mailtoanne@gmail.com"
+        android:fontFamily="@font/montserrat"
         android:textSize="14sp"
-        android:textColor="#ffffff"
+        android:textColor="@color/black"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"/>
 
