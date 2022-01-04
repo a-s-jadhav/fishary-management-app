@@ -15,7 +15,7 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_margin="5dp"
-           android:background="@color/GrayDark"
+           android:background="@color/DenimBlue"
            app:cardCornerRadius="25dp"
            android:elevation="50dp"
            >
@@ -126,7 +126,53 @@
            </LinearLayout>
        </androidx.cardview.widget.CardView>
 
-
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <androidx.cardview.widget.CardView
+               android:layout_width="185dp"
+               android:layout_height="wrap_content"
+               android:layout_margin="5dp"
+               app:cardCornerRadius="20dp">
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/montserrat"
+                        android:text="4000 rs can receiveable"
+                        />
+               </LinearLayout>
+           </androidx.cardview.widget.CardView>
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_margin="5dp"
+               app:cardCornerRadius="20dp">
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_margin="10dp"
+                       android:textSize="20sp"
+                       android:textStyle="bold"
+                       android:textColor="@color/black"
+                       android:fontFamily="@font/montserrat"
+                       android:text="2500 rs can Payable"
+                       />
+               </LinearLayout>
+           </androidx.cardview.widget.CardView>
+       </LinearLayout>
    </LinearLayout>
 
 </FrameLayout>
