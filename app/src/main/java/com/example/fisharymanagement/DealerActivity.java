@@ -22,7 +22,7 @@ public class DealerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dealer);
-        btnBackDealer = (Button)findViewById(R.id.btnBackdealer);
+        btnBackDealer = findViewById(R.id.btnBackdealer);
 
         ArrayList<DealerDetails> DealerDetailsList = new ArrayList<>();
         DealerDetailsList.add(new DealerDetails("Elon Musk","9921541083"));
