@@ -19,10 +19,15 @@
            app:cardCornerRadius="25dp"
            android:elevation="50dp"
            >
-           <ImageView
+           <AnalogClock
+               android:id="@+id/analogClock1"
                android:layout_width="wrap_content"
-               android:layout_height="200dp"
-               android:src="@drawable/avater_new"/>
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:layout_marginLeft="136dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
        </androidx.cardview.widget.CardView>
 
        <androidx.cardview.widget.CardView
